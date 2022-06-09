@@ -1,0 +1,2 @@
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\x64\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\x64\Debug\Lasercom Storage.vcxproj.GenerateResource.cache

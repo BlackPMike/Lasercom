@@ -1,0 +1,63 @@
+C:\Users\mixte\source\repos\Lasercom Storage\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\mixte\source\repos\Lasercom Storage\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\mixte\source\repos\Lasercom Storage\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage1\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage1\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage1\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage1\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage1\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\Pivkin_M\source\repos\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\mixte\source\repos\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.testDialog.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.testDialog.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\Pivkin_M\source\repos\Lasercom Storage3\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.testDialog.resources
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\mixte\source\repos\Lasercom Storage4\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Search.resources
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Search.resources
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.testDialog.resources
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\mixte\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Search.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.testDialog.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage5\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.AssemblyReference.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.MyForm.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Order.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Search.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.testDialog.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\LasercomStorage.Users.resources
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.GenerateResource.cache
+C:\Users\Pivkin_M\source\repos\Lasercom Storage6\Lasercom Storage2\Lasercom Storage\Debug\Lasercom Storage.vcxproj.CopyComplete

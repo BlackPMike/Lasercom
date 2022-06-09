@@ -1,0 +1,16 @@
+﻿  MyForm.cpp
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00C4", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00E0", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00ED", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00FB", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00E5", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00E8", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00E7", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,19): warning C4566: символ, представленный универсальным именем символа "\u00EC", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,53): warning C4566: символ, представленный универсальным именем символа "\u00C3", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,53): warning C4566: символ, представленный универсальным именем символа "\u00EE", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,53): warning C4566: символ, представленный универсальным именем символа "\u00F2", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(298,53): warning C4566: символ, представленный универсальным именем символа "\u00E2", невозможно представить в текущей кодовой странице (1251)
+C:\Users\Pivkin_M\source\repos\Lasercom Storage\Lasercom Storage\MyForm.cpp(322,78): warning C4965: неявная упаковка целого числа 0; используйте nullptr или явное приведение типов
+  MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Lasercom Storage.vcxproj -> C:\Users\Pivkin_M\source\repos\Lasercom Storage\x64\Debug\Lasercom Storage.exe
