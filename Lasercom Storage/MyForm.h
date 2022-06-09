@@ -250,7 +250,9 @@ private: System::Windows::Forms::ToolStripMenuItem^ îòñëåæèâàòüToolStripMenuItem
 private: System::Data::OleDb::OleDbCommand^ oleDbSelectCommand1;
 private: System::Data::OleDb::OleDbConnection^ oleDbConnection2;
 private: System::Data::OleDb::OleDbDataAdapter^ oleDbDataAdapter2;
-private: System::Windows::Forms::Button^ button1;
+private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip2;
+private: System::Windows::Forms::ToolStripMenuItem^ óáğàòüÇíà÷åíèåToolStripMenuItem;
+
 
 
 
@@ -458,9 +460,10 @@ public:
             this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
             this->bindingSource2 = (gcnew System::Windows::Forms::BindingSource(this->components));
             this->oleDbSelectCommand1 = (gcnew System::Data::OleDb::OleDbCommand());
-            this->oleDbDataAdapter2 = (gcnew System::Data::OleDb::OleDbDataAdapter());
             this->oleDbConnection2 = (gcnew System::Data::OleDb::OleDbConnection());
-            this->button1 = (gcnew System::Windows::Forms::Button());
+            this->oleDbDataAdapter2 = (gcnew System::Data::OleDb::OleDbDataAdapter());
+            this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
+            this->óáğàòüÇíà÷åíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingSource1))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingNavigator1))->BeginInit();
             this->bindingNavigator1->SuspendLayout();
@@ -479,6 +482,7 @@ public:
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataTable7))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingSource2))->BeginInit();
+            this->contextMenuStrip2->SuspendLayout();
             this->SuspendLayout();
             // 
             // oleDbInsertCommand1
@@ -730,7 +734,6 @@ public:
             // 
             this->bindingNavigatorPositionItem->AccessibleName = L"Ïîëîæåíèå";
             this->bindingNavigatorPositionItem->AutoSize = false;
-            this->bindingNavigatorPositionItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
             this->bindingNavigatorPositionItem->Name = L"bindingNavigatorPositionItem";
             this->bindingNavigatorPositionItem->Size = System::Drawing::Size(50, 23);
             this->bindingNavigatorPositionItem->Text = L"0";
@@ -1158,7 +1161,6 @@ public:
             // 
             // toolStripTextBox2
             // 
-            this->toolStripTextBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
             this->toolStripTextBox2->Name = L"toolStripTextBox2";
             this->toolStripTextBox2->Size = System::Drawing::Size(100, 23);
             this->toolStripTextBox2->Text = L"Îò";
@@ -1167,7 +1169,6 @@ public:
             // 
             // toolStripTextBox3
             // 
-            this->toolStripTextBox3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
             this->toolStripTextBox3->Name = L"toolStripTextBox3";
             this->toolStripTextBox3->Size = System::Drawing::Size(100, 23);
             this->toolStripTextBox3->Text = L"Äî";
@@ -1359,29 +1360,33 @@ public:
             this->dataGridView2->Size = System::Drawing::Size(327, 150);
             this->dataGridView2->TabIndex = 6;
             this->dataGridView2->Visible = false;
+            this->dataGridView2->CellMouseUp += gcnew System::Windows::Forms::DataGridViewCellMouseEventHandler(this, &MyForm::dataGridView2_CellMouseUp);
             // 
             // oleDbSelectCommand1
             // 
             this->oleDbSelectCommand1->CommandText = L"SELECT *";
             this->oleDbSelectCommand1->Connection = this->oleDbConnection2;
             // 
-            // oleDbDataAdapter2
-            // 
-            this->oleDbDataAdapter2->SelectCommand = this->oleDbSelectCommand1;
-            // 
             // oleDbConnection2
             // 
             this->oleDbConnection2->ConnectionString = L"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=FB.mdb";
             // 
-            // button1
+            // oleDbDataAdapter2
             // 
-            this->button1->Location = System::Drawing::Point(1217, 450);
-            this->button1->Name = L"button1";
-            this->button1->Size = System::Drawing::Size(75, 23);
-            this->button1->TabIndex = 7;
-            this->button1->Text = L"button1";
-            this->button1->UseVisualStyleBackColor = true;
-            this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
+            this->oleDbDataAdapter2->SelectCommand = this->oleDbSelectCommand1;
+            // 
+            // contextMenuStrip2
+            // 
+            this->contextMenuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->óáğàòüÇíà÷åíèåToolStripMenuItem });
+            this->contextMenuStrip2->Name = L"contextMenuStrip2";
+            this->contextMenuStrip2->Size = System::Drawing::Size(181, 48);
+            // 
+            // óáğàòüÇíà÷åíèåToolStripMenuItem
+            // 
+            this->óáğàòüÇíà÷åíèåToolStripMenuItem->Name = L"óáğàòüÇíà÷åíèåToolStripMenuItem";
+            this->óáğàòüÇíà÷åíèåToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->óáğàòüÇíà÷åíèåToolStripMenuItem->Text = L"Óáğàòü çíà÷åíèå";
+            this->óáğàòüÇíà÷åíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::óáğàòüÇíà÷åíèåToolStripMenuItem_Click);
             // 
             // MyForm
             // 
@@ -1392,7 +1397,6 @@ public:
             this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
             this->BackColor = System::Drawing::SystemColors::ActiveCaption;
             this->ClientSize = System::Drawing::Size(1576, 638);
-            this->Controls->Add(this->button1);
             this->Controls->Add(this->dataGridView2);
             this->Controls->Add(this->textBox2);
             this->Controls->Add(this->UserNameT);
@@ -1426,6 +1430,7 @@ public:
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataTable7))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingSource2))->EndInit();
+            this->contextMenuStrip2->ResumeLayout(false);
             this->ResumeLayout(false);
             this->PerformLayout();
 
@@ -1467,6 +1472,7 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 private: System::Void dataGridView1_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 private: System::Void îòñëåæèâàòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void dataGridView2_CellMouseUp(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e);
+private: System::Void óáğàòüÇíà÷åíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -1,3 +1,4 @@
+  LasercomStorage.FP.resources - Embedded, ContainedInManifestFile, 
   LasercomStorage.MyForm.resources - Embedded, ContainedInManifestFile, 
   LasercomStorage.Order.resources - Embedded, ContainedInManifestFile, 
   LasercomStorage.Search.resources - Embedded, ContainedInManifestFile, 
@@ -18,6 +19,13 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class LasercomStorage.FP: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.TextBox textBox1 : Public
+    System.Windows.Forms.TextBox textBox2 : Public
+    System.Windows.Forms.TextBox textBox3 : Public
 Class LasercomStorage.testDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -45,9 +53,9 @@ Class LasercomStorage.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     System.Windows.Forms.ToolStripTextBox toolStripTextBox2 : Public
     System.Windows.Forms.TextBox UserNameT : Public
     System.Windows.Forms.DataGridView dataGridView1 : Public
-Class LasercomStorage.Order: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class LasercomStorage.Users: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class LasercomStorage.Users: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class LasercomStorage.Order: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

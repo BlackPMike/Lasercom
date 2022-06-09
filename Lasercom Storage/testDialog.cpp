@@ -145,6 +145,34 @@ System::Void LasercomStorage::testDialog::button1_Click(System::Object^ sender, 
     return System::Void();
 }
 
+System::Void LasercomStorage::testDialog::textBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if ((e->KeyChar.IsDigit(e->KeyChar)) || (e->KeyChar == ',') || (e->KeyChar == '.') || (e->KeyChar == '-') || (e->KeyChar.IsControl(e->KeyChar)))
+    {
+        e->Handled = false;
+        return System::Void();
+    }
+    else
+    {
+        e->Handled = true;
+    }
+    return System::Void();
+}
+
+System::Void LasercomStorage::testDialog::textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if ((e->KeyChar.IsLetterOrDigit(e->KeyChar)) || (e->KeyChar == ',') || (e->KeyChar == '.') || (e->KeyChar == '-') || (e->KeyChar.IsControl(e->KeyChar)))
+    {
+        e->Handled = false;
+        return System::Void();
+    }
+    else
+    {
+        e->Handled = true;
+    }
+    return System::Void();
+}
+
 
 
 

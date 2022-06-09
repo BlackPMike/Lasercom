@@ -84,6 +84,7 @@ namespace LasercomStorage {
 			this->textBox1->Size = System::Drawing::Size(235, 20);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &testDialog::textBox1_TextChanged);
+			this->textBox1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &testDialog::textBox1_KeyPress);
 			// 
 			// button1
 			// 
@@ -123,6 +124,7 @@ namespace LasercomStorage {
 			this->textBox3->Size = System::Drawing::Size(100, 20);
 			this->textBox3->TabIndex = 4;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &testDialog::textBox3_TextChanged);
+			this->textBox3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &testDialog::textBox3_KeyPress);
 			// 
 			// label1
 			// 
@@ -180,5 +182,7 @@ private: System::Void testDialog_Load(System::Object^ sender, System::EventArgs^
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 
+private: System::Void textBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
+private: System::Void textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

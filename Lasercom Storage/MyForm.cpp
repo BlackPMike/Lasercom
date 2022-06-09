@@ -1,6 +1,7 @@
 ﻿#include "MyForm.h"
 #include "Order.h"
 #include "Users.h"
+#include "FP.h"
 #include "Search.h"
 #include "testDialog.h"
 #include <iostream>
@@ -22,6 +23,7 @@ using namespace System::Collections;
 using namespace System::Data;
 using namespace System::Drawing;
 using namespace System::Threading::Tasks;
+
 
 
 void readorchange(int UT, DataGridView^ grid, int mod,ToolStripButton^ butt)
@@ -176,7 +178,7 @@ String^ point(String^ a)
 	}
 	void colorselections(DataGridView^ grid)
 	{
-		/*for (int j = 0; j < grid->Rows->Count - 1; j++)
+		for (int j = 0; j < grid->Rows->Count - 1; j++)
 		{
 			if (Convert::ToInt32(grid->Rows[j]->Cells[1]->Value->ToString()) > Convert::ToInt32(grid->Rows[j]->Cells[2]->Value->ToString()))
 			{
@@ -192,7 +194,7 @@ String^ point(String^ a)
 				grid->Rows[j]->DefaultCellStyle->BackColor = Color::Red;
 			}
 		}
-		*/
+		
 	}
 
 	void repaint(DataGridView^ grid)
@@ -229,6 +231,77 @@ String^ point(String^ a)
 		OleDbCommand^ dbComand = gcnew OleDbCommand(query, dbConnection);
 		dbComand->ExecuteNonQuery();
 		return "s";
+	}
+
+	void CountFP(DataGridView^ grid, int SelectedIndex)
+	{
+		String^ SelectedTable;
+		String^ SelectedDB;
+		String^ DataBase;
+		switch (SelectedIndex) {
+		case 0: //целые
+		{
+			for (int i = 0; i < grid->RowCount - 1; i++)
+			{
+				SelectedTable = "StoreSheet";
+				String^ SQL = "SELECT SShCount FROM " + SelectedTable + " WHERE SShID = '" + grid->Rows[i]->Cells[0]->Value->ToString() + "'"; //Запрос
+				SelectedDB = TB(DataBase);
+				auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+				Connection->Open();
+				auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+				auto Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+				while (Reader->Read()) { grid->Rows[i]->Cells[1]->Value = Reader["SShCount"]; }
+				Reader->Close();
+				Connection->Close();
+
+			}
+
+
+		}
+		break;
+
+		case 2: //труба
+		{
+			for (int i = 0; i < grid->RowCount - 1; i++)
+			{
+				SelectedTable = "Tube";
+				String^ SQL = "SELECT NumberTube FROM " + SelectedTable + " WHERE TubeName = '" + grid->Rows[i]->Cells[0]->Value->ToString() + "'"; //Запрос
+				SelectedDB = DB(DataBase);
+				auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+				Connection->Open();
+				auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+				auto Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+				while (Reader->Read()) { grid->Rows[i]->Cells[1]->Value = Reader["NumberTube"]; }
+				Reader->Close();
+				Connection->Close();
+
+			}
+		}
+		break;
+
+
+		case 4: //метизы
+		{
+			for (int i = 0; i < grid->RowCount - 1; i++)
+			{
+				SelectedTable = "Metiz";
+				String^ SQL = "SELECT MetNumber FROM " + SelectedTable + " WHERE MetName = '" + grid->Rows[i]->Cells[0]->Value->ToString() + "'"; //Запрос
+				SelectedDB = DB(DataBase);
+				auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+				Connection->Open();
+				auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+				auto Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+				while (Reader->Read()) { grid->Rows[i]->Cells[1]->Value = Reader["MetNumber"]; }
+				Reader->Close();
+				Connection->Close();
+
+			}
+
+		}
+		break;
+		}
+		colorselections(grid);
+		return System::Void();
 	}
 
 	System::Void LasercomStorage::MyForm::dataGridView1_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) //обновление
@@ -628,6 +701,13 @@ String^ point(String^ a)
 			while (Reader->Read()) { dataSet2->Tables["Zak"]->Rows->Add(Reader["SShID"], nullptr, Reader["SShYe"], Reader["SShRe"]); }
 			Reader->Close();
 			Connection->Close();
+			bindingSource2->DataSource = dataSet2;
+			bindingSource2->DataMember = "Zak";
+			dataGridView2->DataSource = bindingSource2;
+			dataGridView2->Columns[2]->Visible = false;
+			dataGridView2->Columns[3]->Visible = false;
+			CountFP(dataGridView2, i);
+			
 			
 		}
 		break;
@@ -665,6 +745,7 @@ String^ point(String^ a)
 			while (Reader->Read()) { comboBox2->Items->Add(Reader["SScThick"]); }
 			Reader->Close();
 			Connection->Close();
+
 		}
 		break;
 		case 2: //труба
@@ -696,12 +777,23 @@ String^ point(String^ a)
 			Command = gcnew Data::OleDb::OleDbCommand(UnMt, Connection);
 			Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
 			while (Reader->Read()) { comboBox1->Items->Add(Reader["TMt"]); }
-			Command = gcnew Data::OleDb::OleDbCommand(query7, Connection);
-			Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
-			while (Reader->Read()) { dataSet2->Tables["Zak"]->Rows->Add(Reader["TubeName"], Reader["NumberTube"], Reader["TYe"], Reader["TRe"] ); }
+			/////////////////
 			Reader->Close();
 			Connection->Close();
-		
+			SelectedDB = FB(DataBase);
+			Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+			Connection->Open();
+			Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+			Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+			while (Reader->Read()) { dataSet2->Tables["Zak"]->Rows->Add(Reader["TubeName"], nullptr, Reader["TYe"], Reader["TRe"]); }
+			Reader->Close();
+			Connection->Close();
+			bindingSource2->DataSource = dataSet2;
+			bindingSource2->DataMember = "Zak";
+			dataGridView2->DataSource = bindingSource2;
+			dataGridView2->Columns[2]->Visible = false;
+			dataGridView2->Columns[3]->Visible = false;
+			CountFP(dataGridView2, i);
 		}
 		break;
 		case 3: //Трубы отход
@@ -761,11 +853,23 @@ String^ point(String^ a)
 			auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
 			auto Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
 			while (Reader->Read()) { dataSet1->Tables[SelectedTable]->Rows->Add(Reader["MetName"], Reader["MetNumber"], Reader["LastChangesDateM"], Reader["UserMetiz"]); }
-			Command = gcnew Data::OleDb::OleDbCommand(query7, Connection);   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
-			while (Reader->Read()) { dataSet2->Tables["Zak"]->Rows->Add(Reader["MetName"], Reader["MetNumber"], Reader["MYe"], Reader["MRe"]); }
 			Reader->Close();
 			Connection->Close();
+			SelectedDB = FB(DataBase);
+			Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+			Connection->Open();
+			Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);  
+			Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+			while (Reader->Read()) { dataSet2->Tables["Zak"]->Rows->Add(Reader["MetName"], nullptr, Reader["MYe"], Reader["MRe"]); }
+			Reader->Close();
+			Connection->Close();
+			bindingSource2->DataSource = dataSet2;
+			bindingSource2->DataMember = "Zak";
+			dataGridView2->DataSource = bindingSource2;
+			dataGridView2->Columns[2]->Visible = false;
+			dataGridView2->Columns[3]->Visible = false;
+			CountFP(dataGridView2, i);
+
 		}
 		break;
 
@@ -798,13 +902,7 @@ String^ point(String^ a)
 			comboBox3->SelectedIndex = 0;
 			textBox1_TextChanged(sender, e);
 		}
-		bindingSource2->DataSource = dataSet2;
-		bindingSource2->DataMember = "Zak";
-		dataGridView2->DataSource = bindingSource2;
-		dataGridView2->Columns[2]->Visible = false;
-		dataGridView2->Columns[3]->Visible = false;
 		repaint(dataGridView1);
-		colorselections(dataGridView2);
 		return System::Void();
 
 	}
@@ -880,6 +978,7 @@ String^ point(String^ a)
 
 	System::Void LasercomStorage::MyForm::MyForm_Load(System::Object^ sender, System::EventArgs^ e) //загрузка формы
 	{
+		toolStripComboBox1->SelectedIndex == -1;
 		int usertype = 0;
 		System::IO::StreamReader^ sr;
 		bool doneReading;
@@ -2057,7 +2156,7 @@ String^ point(String^ a)
 
 
 
-	System::Void LasercomStorage::MyForm::dataGridView1_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+	System::Void LasercomStorage::MyForm::dataGridView1_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)  //Удаление лишних символов
 	{
 		String^ value;
 		String^ Nvalue;
@@ -2120,7 +2219,7 @@ String^ point(String^ a)
 		return System::Void();
 	}
 
-	System::Void LasercomStorage::MyForm::отслеживатьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+	System::Void LasercomStorage::MyForm::отслеживатьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)  // кнопка отслеживать
 	{
 		int Pos = 0;
 		Pos = dataGridView1->CurrentCell->RowIndex;
@@ -2128,27 +2227,48 @@ String^ point(String^ a)
 		String^ SelectedTable;
 		String^ SelectedDB;
 		int i = toolStripComboBox1->SelectedIndex;
-		String^ Search = comboBox1->Text;
-		String^ Search2 = comboBox2->Text;
 		String^ Coll;
-		int Ye = 500;
-		int Re = 600;
+		int Ye = 0;
+		int Re = 0;
 		String^ Name = dataGridView1->Rows[Pos]->Cells[0]->Value->ToString();
+		
 		switch (i) {
 		case 0: //целые
 		{
+			
 				SelectedTable = "SSh";
 				SelectedDB = FB(DataBase);
-				String^ SQL = "INSERT INTO [" + SelectedTable + "] (SShID,SShYe,SShRe)  VALUES ('" + Name + "', " + Ye + "," + Re + ")";
-				//oleDbDataAdapter1->SelectCommand->CommandText = SQL;
-				//oleDbDataAdapter1->SelectCommand->Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
-				auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
-				Connection->Open();
-				auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
-				Command->ExecuteNonQuery();
-				//auto Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
-				//Reader->Close();
-				Connection->Close();
+				OleDbConnection^ dbConnection = gcnew OleDbConnection(SelectedDB);
+				String^ DoubleName = "SELECT * FROM [" + SelectedTable + "] WHERE SShID = '" + Name + "'";
+				dbConnection->Open();
+				auto Comand = gcnew OleDbCommand(DoubleName, dbConnection);
+				auto Reader = Comand->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+				if (Reader->Read() == 1 )
+				{
+					MessageBox::Show("Лазерком", "Уже отслеживается!");
+					return System::Void();
+				}
+				else
+				{
+					LasercomStorage::FP^ f1 = gcnew FP();
+					f1->textBox1->Text = Name;
+					if (f1->ShowDialog(this) == ::DialogResult::OK)
+					{
+						Ye = Convert::ToInt32(f1->textBox3->Text);
+						Re = Convert::ToInt32(f1->textBox2->Text);
+					}
+					else
+					{
+						return System::Void();
+					}
+					String^ SQL = "INSERT INTO [" + SelectedTable + "] (SShID,SShYe,SShRe)  VALUES ('" + Name + "', " + Ye + "," + Re + ")";
+					auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+					Connection->Open();
+					auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+					Command->ExecuteNonQuery();
+					Connection->Close();
+					toolStripComboBox1_SelectedIndexChanged(sender, e);
+				}
 				
 		}
 		break;
@@ -2159,7 +2279,39 @@ String^ point(String^ a)
 		break;
 		case 2: //труба
 		{
-		
+			SelectedTable = "Tube";
+			SelectedDB = FB(DataBase);
+			OleDbConnection^ dbConnection = gcnew OleDbConnection(SelectedDB);
+			String^ DoubleName = "SELECT * FROM [" + SelectedTable + "] WHERE TubeName = '" + Name + "'";
+			dbConnection->Open();
+			auto Comand = gcnew OleDbCommand(DoubleName, dbConnection);
+			auto Reader = Comand->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+			if (Reader->Read() == 1)
+			{
+				MessageBox::Show("Лазерком", "Уже отслеживается!");
+				return System::Void();
+			}
+			else
+			{
+				LasercomStorage::FP^ f1 = gcnew FP();
+				f1->textBox1->Text = Name;
+				if (f1->ShowDialog(this) == ::DialogResult::OK)
+				{
+					Ye = Convert::ToInt32(f1->textBox3->Text);
+					Re = Convert::ToInt32(f1->textBox2->Text);
+				}
+				else
+				{
+					return System::Void();
+				}
+				String^ SQL = "INSERT INTO [" + SelectedTable + "] (TubeName,TYe,TRe)  VALUES ('" + Name + "', " + Ye + "," + Re + ")";
+				auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+				Connection->Open();
+				auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+				Command->ExecuteNonQuery();
+				Connection->Close();
+				toolStripComboBox1_SelectedIndexChanged(sender, e);
+			}
 		}
 		break;
 		case 3: //труба отходы
@@ -2170,43 +2322,125 @@ String^ point(String^ a)
 		break;
 		case 4: //метизы
 		{
+			SelectedTable = "Metiz";
+			SelectedDB = FB(DataBase);
+			OleDbConnection^ dbConnection = gcnew OleDbConnection(SelectedDB);
+			String^ DoubleName = "SELECT * FROM [" + SelectedTable + "] WHERE MetName = '" + Name + "'";
+			dbConnection->Open();
+			auto Comand = gcnew OleDbCommand(DoubleName, dbConnection);
+			auto Reader = Comand->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
+			if (Reader->Read() == 1)
+			{
+				MessageBox::Show("Лазерком", "Уже отслеживается!");
+				return System::Void();
+			}
+			else
+			{
+				LasercomStorage::FP^ f1 = gcnew FP();
+				f1->textBox1->Text = Name;
+				if (f1->ShowDialog(this) == ::DialogResult::OK)
+				{
+					Ye = Convert::ToInt32(f1->textBox3->Text);
+					Re = Convert::ToInt32(f1->textBox2->Text);
+				}
+				else
+				{
+					return System::Void();
+				}
+				String^ SQL = "INSERT INTO [" + SelectedTable + "] (MetName,MYe,MRe)  VALUES ('" + Name + "', " + Ye + "," + Re + ")";
+				auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
+				Connection->Open();
+				auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
+				Command->ExecuteNonQuery();
+				Connection->Close();
+				toolStripComboBox1_SelectedIndexChanged(sender, e);
+			}
+		}
+		break;
+		
+		return System::Void();
+		}
+	}
+
+	System::Void LasercomStorage::MyForm::dataGridView2_CellMouseUp(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e)  // ПКМ грид 2
+	{
+		if (e->Button == System::Windows::Forms::MouseButtons::Right)
+		{
+			Int32 number = 0;
+			dataGridView2->ClearSelection();
+			int i = e->ColumnIndex;
+			int j = e->RowIndex;
+			dataGridView2->Rows[e->RowIndex]->Cells[i]->Selected = true;
+			DataGridViewCell^ cell = this->dataGridView2->Rows[e->RowIndex]->Cells[e->ColumnIndex];
+			dataGridView2->CurrentCell = cell;
+			if (i == 0)
+			{
+				contextMenuStrip2->Show(System::Windows::Forms::Control::Cursor->Position);
+		}
+			
+		}
+		return System::Void();
+	}
+
+	System::Void LasercomStorage::MyForm::убратьЗначениеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)  // убрать значение из отслеживаемых
+	{
+		int Pos = dataGridView2->CurrentCell->RowIndex;
+		String^ Name = dataGridView2->CurrentCell->Value->ToString();
+		String^ DataBase;
+		String^ SelectedDB = FB(DataBase);
+		String^ SelectedTable;
+		String^ query;
+		int i = toolStripComboBox1->SelectedIndex;
+		//MessageBox::Show(Name);
+		switch (i) {
+		case 0: //целые
+		{
+			SelectedTable = "SSh";
+			query = "DELETE FROM [" + SelectedTable + "] WHERE SShID = '" + Name + "'";
+		}
+		break;
+		case 1:  //до
+		{
 			return System::Void();
 		}
 		break;
-		return System::Void();
-		}
-	}
-
-	System::Void LasercomStorage::MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		String^ SelectedTable;
-		String^ SelectedDB;
-		String^ DataBase;
-			//String^
-		for (int i = 0; i < dataGridView2->RowCount-1; i++)
+		case 2: //труба
 		{
-			SelectedTable = "StoreSheet";
-			String^ SQL = "SELECT SShCount FROM " + SelectedTable + " WHERE SShID = '" + dataGridView2->Rows[i]->Cells[0]->Value->ToString()+"'"; //Запрос
-			SelectedDB = TB(DataBase);
-			auto Connection = gcnew Data::OleDb::OleDbConnection(SelectedDB);
-			Connection->Open();
-			auto Command = gcnew Data::OleDb::OleDbCommand(SQL, Connection);
-			auto Reader = Command->ExecuteReader(System::Data::CommandBehavior::CloseConnection);
-			//while (Reader->Read()) { dataSet2->Tables["Zak"]->Rows->Add(nullptr, Reader["SShCount"]); }
-			while (Reader->Read()) {
-				//dataSet2->Tables["Zak"]->Rows[i]->
-				dataSet2->Tables["Zak"]->
-			}
-			Reader->Close();
-			Connection->Close();
+			SelectedTable = "Tube";
+			query = "DELETE FROM [" + SelectedTable + "] WHERE TubeName = '" + Name + "'";
+		}
+		break;
+		case 3: //труба отход
+		{
+			return System::Void();
+		}
+		break;
+		case 4: //метизы
+		{
+			SelectedTable = "Metiz";
+			query = "DELETE FROM [" + SelectedTable + "] WHERE MetName = '" + Name + "'";
+		}
+		break;
+
 
 		}
-	
+
+		OleDbConnection^ dbConnection = gcnew OleDbConnection(SelectedDB);
+		dbConnection->Open();
+		OleDbCommand^ dbComand = gcnew OleDbCommand(query, dbConnection);
+		dbComand->ExecuteNonQuery();
+		dataGridView2->Update();
+		dataGridView2->Rows->RemoveAt(Pos);
+		dbConnection->Close();
+		repaint(dataGridView2);
+		colorselections(dataGridView2);
 		return System::Void();
+
 	}
 
-	
-	
+
+
+
 
 	
 
