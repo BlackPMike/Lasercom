@@ -252,6 +252,7 @@ private: System::Data::OleDb::OleDbConnection^ oleDbConnection2;
 private: System::Data::OleDb::OleDbDataAdapter^ oleDbDataAdapter2;
 private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip2;
 private: System::Windows::Forms::ToolStripMenuItem^ óáğàòüÇíà÷åíèåToolStripMenuItem;
+private: System::Windows::Forms::ToolStripButton^ toolStripButton4;
 
 
 
@@ -464,6 +465,7 @@ public:
             this->oleDbDataAdapter2 = (gcnew System::Data::OleDb::OleDbDataAdapter());
             this->contextMenuStrip2 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
             this->óáğàòüÇíà÷åíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingSource1))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->bindingNavigator1))->BeginInit();
             this->bindingNavigator1->SuspendLayout();
@@ -683,11 +685,11 @@ public:
             this->bindingNavigator1->BackColor = System::Drawing::SystemColors::InactiveCaption;
             this->bindingNavigator1->CountItem = this->bindingNavigatorCountItem;
             this->bindingNavigator1->DeleteItem = nullptr;
-            this->bindingNavigator1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(13) {
+            this->bindingNavigator1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(14) {
                 this->bindingNavigatorMoveFirstItem,
                     this->bindingNavigatorMovePreviousItem, this->bindingNavigatorSeparator, this->bindingNavigatorPositionItem, this->bindingNavigatorCountItem,
                     this->bindingNavigatorSeparator1, this->bindingNavigatorMoveNextItem, this->bindingNavigatorMoveLastItem, this->bindingNavigatorSeparator2,
-                    this->toolStripComboBox1, this->toolStripButton1, this->toolStripButton2, this->toolStripButton3
+                    this->toolStripComboBox1, this->toolStripButton1, this->toolStripButton2, this->toolStripButton3, this->toolStripButton4
             });
             this->bindingNavigator1->Location = System::Drawing::Point(0, 0);
             this->bindingNavigator1->MoveFirstItem = this->bindingNavigatorMoveFirstItem;
@@ -734,6 +736,7 @@ public:
             // 
             this->bindingNavigatorPositionItem->AccessibleName = L"Ïîëîæåíèå";
             this->bindingNavigatorPositionItem->AutoSize = false;
+            this->bindingNavigatorPositionItem->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
             this->bindingNavigatorPositionItem->Name = L"bindingNavigatorPositionItem";
             this->bindingNavigatorPositionItem->Size = System::Drawing::Size(50, 23);
             this->bindingNavigatorPositionItem->Text = L"0";
@@ -1161,6 +1164,7 @@ public:
             // 
             // toolStripTextBox2
             // 
+            this->toolStripTextBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
             this->toolStripTextBox2->Name = L"toolStripTextBox2";
             this->toolStripTextBox2->Size = System::Drawing::Size(100, 23);
             this->toolStripTextBox2->Text = L"Îò";
@@ -1169,6 +1173,7 @@ public:
             // 
             // toolStripTextBox3
             // 
+            this->toolStripTextBox3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9));
             this->toolStripTextBox3->Name = L"toolStripTextBox3";
             this->toolStripTextBox3->Size = System::Drawing::Size(100, 23);
             this->toolStripTextBox3->Text = L"Äî";
@@ -1379,14 +1384,24 @@ public:
             // 
             this->contextMenuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->óáğàòüÇíà÷åíèåToolStripMenuItem });
             this->contextMenuStrip2->Name = L"contextMenuStrip2";
-            this->contextMenuStrip2->Size = System::Drawing::Size(181, 48);
+            this->contextMenuStrip2->Size = System::Drawing::Size(167, 26);
             // 
             // óáğàòüÇíà÷åíèåToolStripMenuItem
             // 
             this->óáğàòüÇíà÷åíèåToolStripMenuItem->Name = L"óáğàòüÇíà÷åíèåToolStripMenuItem";
-            this->óáğàòüÇíà÷åíèåToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+            this->óáğàòüÇíà÷åíèåToolStripMenuItem->Size = System::Drawing::Size(166, 22);
             this->óáğàòüÇíà÷åíèåToolStripMenuItem->Text = L"Óáğàòü çíà÷åíèå";
             this->óáğàòüÇíà÷åíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::óáğàòüÇíà÷åíèåToolStripMenuItem_Click);
+            // 
+            // toolStripButton4
+            // 
+            this->toolStripButton4->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
+            this->toolStripButton4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripButton4.Image")));
+            this->toolStripButton4->ImageTransparentColor = System::Drawing::Color::Magenta;
+            this->toolStripButton4->Name = L"toolStripButton4";
+            this->toolStripButton4->Size = System::Drawing::Size(23, 33);
+            this->toolStripButton4->Text = L"toolStripButton4";
+            this->toolStripButton4->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton4_Click_1);
             // 
             // MyForm
             // 
@@ -1474,5 +1489,6 @@ private: System::Void dataGridView1_CellValueChanged(System::Object^ sender, Sys
 private: System::Void îòñëåæèâàòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void dataGridView2_CellMouseUp(System::Object^ sender, System::Windows::Forms::DataGridViewCellMouseEventArgs^ e);
 private: System::Void óáğàòüÇíà÷åíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void toolStripButton4_Click_1(System::Object^ sender, System::EventArgs^ e);
 };
 }

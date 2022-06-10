@@ -143,7 +143,7 @@ String^ point(String^ a)
 	}
 	String^ TB(String^ b)
 	{
-		b = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = T:\\TehtranN.mdb";
+		b = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = T:\\боевая\\TehtranN.mdb"; 
 		return(b);
 	}
 	String^ FB(String^ c)
@@ -182,16 +182,19 @@ String^ point(String^ a)
 		{
 			if (Convert::ToInt32(grid->Rows[j]->Cells[1]->Value->ToString()) > Convert::ToInt32(grid->Rows[j]->Cells[2]->Value->ToString()))
 			{
-				grid->Rows[j]->DefaultCellStyle->BackColor = Color::Green;
+				//grid->Rows[j]->DefaultCellStyle->BackColor = Color::Green;
+				grid->Rows[j]->Cells[0]->Style->BackColor = Color::Green;
 			}
 			if (Convert::ToInt32(grid->Rows[j]->Cells[1]->Value->ToString()) <= Convert::ToInt32(grid->Rows[j]->Cells[2]->Value->ToString())
 				&& Convert::ToInt32(grid->Rows[j]->Cells[1]->Value->ToString()) > Convert::ToInt32(grid->Rows[j]->Cells[3]->Value->ToString()))
 			{
-				grid->Rows[j]->DefaultCellStyle->BackColor = Color::Yellow;
+			//	grid->Rows[j]->DefaultCellStyle->BackColor = Color::Yellow;
+				grid->Rows[j]->Cells[0]->Style->BackColor = Color::Yellow;
 			}
 			if (Convert::ToInt32(grid->Rows[j]->Cells[1]->Value->ToString()) <= Convert::ToInt32(grid->Rows[j]->Cells[3]->Value->ToString()))
 			{
-				grid->Rows[j]->DefaultCellStyle->BackColor = Color::Red;
+				//grid->Rows[j]->DefaultCellStyle->BackColor = Color::Red;
+				grid->Rows[j]->Cells[0]->Style->BackColor = Color::Red;
 			}
 		}
 		
@@ -706,8 +709,14 @@ String^ point(String^ a)
 			dataGridView2->DataSource = bindingSource2;
 			dataGridView2->Columns[2]->Visible = false;
 			dataGridView2->Columns[3]->Visible = false;
-			CountFP(dataGridView2, i);
-			
+			if (dataGridView2->RowCount > 1)
+			{
+				CountFP(dataGridView2, i);
+			}
+			else
+			{
+				dataGridView2->Visible = false;
+			}
 			
 		}
 		break;
@@ -793,7 +802,14 @@ String^ point(String^ a)
 			dataGridView2->DataSource = bindingSource2;
 			dataGridView2->Columns[2]->Visible = false;
 			dataGridView2->Columns[3]->Visible = false;
-			CountFP(dataGridView2, i);
+			if (dataGridView2->RowCount > 1)
+			{
+				CountFP(dataGridView2, i);
+			}
+			else
+			{
+				dataGridView2->Visible = false;
+			}
 		}
 		break;
 		case 3: //Трубы отход
@@ -868,7 +884,14 @@ String^ point(String^ a)
 			dataGridView2->DataSource = bindingSource2;
 			dataGridView2->Columns[2]->Visible = false;
 			dataGridView2->Columns[3]->Visible = false;
-			CountFP(dataGridView2, i);
+			if (dataGridView2->RowCount > 1)
+			{
+				CountFP(dataGridView2, i);
+			}
+			else
+			{
+				dataGridView2->Visible = false;
+			}
 
 		}
 		break;
@@ -1301,6 +1324,10 @@ String^ point(String^ a)
 			dataGridView1->ClearSelection();
 			int i = e->ColumnIndex;
 			int j = e->RowIndex;
+			if ((i < 0) || (j < 0))
+			{
+				return System::Void();
+			}
 			dataGridView1->Rows[e->RowIndex]->Cells[i]->Selected = true;
 			DataGridViewCell^ cell = this->dataGridView1->Rows[e->RowIndex]->Cells[e->ColumnIndex];
 			dataGridView1->CurrentCell = cell;
@@ -1327,8 +1354,10 @@ String^ point(String^ a)
 			меньшеИлиРавноToolStripMenuItem->Visible = false;
 			диапазонToolStripMenuItem->Visible = false;
 	     	}
-			contextMenuStrip1->Show(System::Windows::Forms::Control::Cursor->Position);
-	
+			if (dataGridView1->CurrentCell->Value->ToString() != "")
+			{
+				contextMenuStrip1->Show(System::Windows::Forms::Control::Cursor->Position);
+			}	
 		}
 
 		return System::Void();
@@ -2370,10 +2399,14 @@ String^ point(String^ a)
 			dataGridView2->ClearSelection();
 			int i = e->ColumnIndex;
 			int j = e->RowIndex;
+			if ((i < 0) || (j < 0))
+			{
+				return System::Void();
+			}
 			dataGridView2->Rows[e->RowIndex]->Cells[i]->Selected = true;
 			DataGridViewCell^ cell = this->dataGridView2->Rows[e->RowIndex]->Cells[e->ColumnIndex];
 			dataGridView2->CurrentCell = cell;
-			if (i == 0)
+			if ((i == 0)&&(dataGridView2->CurrentCell->Value->ToString() != ""))
 			{
 				contextMenuStrip2->Show(System::Windows::Forms::Control::Cursor->Position);
 		}
@@ -2436,6 +2469,13 @@ String^ point(String^ a)
 		colorselections(dataGridView2);
 		return System::Void();
 
+	}
+
+	System::Void LasercomStorage::MyForm::toolStripButton4_Click_1(System::Object^ sender, System::EventArgs^ e)
+	{
+		textBox1->Clear();
+		toolStripComboBox1_SelectedIndexChanged(sender, e);
+		return System::Void();
 	}
 
 
